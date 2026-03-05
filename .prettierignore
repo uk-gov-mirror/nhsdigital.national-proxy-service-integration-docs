@@ -1,0 +1,3 @@
+# Prettier ignore rules
+_site/
+node_modules/

@@ -1,0 +1,7 @@
+{	
+	"recommendations": [
+		"esbenp.prettier-vscode",
+		"eseom.nunjucks-template",
+		"streetsidesoftware.code-spell-checker"
+	]
+}

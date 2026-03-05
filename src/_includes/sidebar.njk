@@ -1,0 +1,14 @@
+<div class="app-pane__side-bar">
+  <nav class="app-side-nav">
+    {% for section in menu %}
+      <h2 class="app-side-nav__heading">{{ section.label }}</h2>
+      <ul class="nhsuk-list app-side-nav__list">
+        {% for item in section.items %}
+          <li class="app-side-nav__item">
+            <a class="app-side-nav__link" href="{{ item.path | url }}">{{ item.label }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  </nav>
+</div>

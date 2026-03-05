@@ -1,0 +1,24 @@
+﻿img { width: 100%; height: auto; }
+
+.image-pop-out-wrapper {
+    margin-bottom: 24px;
+}
+
+pre.mermaid {
+  width: 100%;           /* fills parent width */
+  overflow: auto;        /* enables pan via scroll */
+  position: relative;
+  cursor: grab;          /* optional UX improvement */
+}
+
+pre.mermaid:active {
+  cursor: grabbing;
+}
+
+/* Ensure SVG keeps natural size */
+pre.mermaid svg {
+  display: block;
+  min-width: 1500px;
+  height: auto;
+  max-width: none;       /* important: prevents auto shrinking */
+}

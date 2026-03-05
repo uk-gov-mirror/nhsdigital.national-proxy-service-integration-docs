@@ -1,0 +1,10 @@
+{% macro imagePopOut(imageUrl, altText) %}
+<div class="image-pop-out-wrapper">
+    <a href="{{ imageUrl }}" class="design-example__pop-out" target="_blank" rel="noopener noreferrer">
+        Open this diagram in new window
+    </a>
+    <div class="code-embed">
+    <img class="nhsuk-image__img" src="{{ imageUrl }}" alt="{{ altText }}">
+    </div>
+</div>
+{% endmacro %}

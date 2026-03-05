@@ -1,0 +1,61 @@
+[
+  {
+    "label": "National Proxy Service",
+    "items": [
+      { "label": "Service overview", "path": "/" },
+      { "label": "Stages of proxy access", "path": "/stages/" },
+      { "label": "Intended audience", "path": "/intended-audience/" }
+    ]
+  },
+  {
+    "label": "Getting started",
+    "items": [
+      { "label": "How to use these docs", "path": "/getting-started/how-to-use-these-docs" },
+      { "label": "Environments and access", "path": "/getting-started/environments-and-access" },
+      { "label": "Architecture overview", "path": "/getting-started/architecture-overview" }
+    ]
+  },
+  {
+    "label": "Clinical workflows",
+    "items": [
+      { "label": "Overview", "path": "/clinical-workflows/" },
+      {
+        "label": "Request and grant of access",
+        "path": "/clinical-workflows/request-and-grant-of-access"
+      },
+      { "label": "Manage proxy access", "path": "/clinical-workflows/manage-proxy-access" },
+      { "label": "GP transfers", "path": "/clinical-workflows/gp-transfers" },
+      {
+        "label": "Migrating proxy roles to the National service",
+        "path": "/clinical-workflows/migrating-roles"
+      }
+    ]
+  },
+  {
+    "label": "Patient-facing journeys",
+    "items": [
+      { "label": "Overview", "path": "/patient-facing-journeys/" },
+      {
+        "label": "Clinical safety and Information Governance",
+        "path": "/patient-facing-journeys/clinical-safety-and-information-governance"
+      },
+      {
+        "label": "Enable proxy access to services",
+        "path": "/patient-facing-journeys/enable-proxy-access-to-services"
+      },
+      {
+        "label": "API producer guidance",
+        "path": "/patient-facing-journeys/api-producer-guidance"
+      },
+      { "label": "NHS app specific guidance", "path": "/patient-facing-journeys/nhs-app-guidance" },
+      {
+        "label": "IM1 PFS supplier guidance",
+        "path": "/patient-facing-journeys/im1-pfs-supplier-guidance"
+      }
+    ]
+  },
+  {
+    "label": "Support",
+    "items": [{ "label": "Contact us", "path": "/support/contact-us" }]
+  }
+]

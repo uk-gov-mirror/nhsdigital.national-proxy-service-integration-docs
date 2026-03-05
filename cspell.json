@@ -1,0 +1,37 @@
+// cSpell Settings
+{
+    // Version of the setting file.  Always 0.2
+    "version": "0.2",
+    // language - current active spelling language
+    "language": "en",
+    // words - list of words to be always considered correct
+    "words": [
+        "authorisation",
+        "authorised",
+        "autonumber",
+        "contentinfo",
+        "DAPB",
+        "endfor",
+        "FHIR",
+        "focusable",
+        "Frutiger",
+        "labelledby",
+        "maincontent",
+        "minimisation",
+        "nhsuk",
+        "organisations",
+        "Organised",
+        "recognised",
+        "Resizer",
+        "rgba",
+        "Standardisation",
+        "stylesheet",
+        "summarise",
+        "Synchronisation",
+        "synchronise",
+        "synchronised",
+        "syntaxhighlight",
+        "userinfo",
+        "xlink"
+    ]
+}
