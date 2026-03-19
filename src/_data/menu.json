@@ -29,6 +29,10 @@
       { "label": "Manage proxy access", "path": "/clinical-workflows/manage-proxy-access" },
       { "label": "GP transfers", "path": "/clinical-workflows/gp-transfers" },
       {
+        "label": "Synchronising updates",
+        "path": "/clinical-workflows/synchronising-updates"
+      },
+      {
         "label": "Migrating proxy roles to the National service",
         "path": "/clinical-workflows/migrating-roles"
       }

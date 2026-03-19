@@ -7,7 +7,18 @@ Underlying capability overview TODO
 
 ## Web integrations
 
+The process of navigating to a third-party web application and retaining logged-in state via web integration will follow almost identical steps as the existing process, as described below.
+
+1. User logs (NHS app obtains an identity token for the logged in user)
+1. User switches to manage services for a patient
+1. **(NEW)** NHS app must exchange the user's token for a composite token for the patient they wish to manage services for (see [NHS login documentation](https://nhsconnect.github.io/nhslogin/))
+1. NHS app passes the composite token in the URL as part of the jump off
+1. Third party web app completes verification of the token passed in the query string to it
+1. **(Slight Variant)** Third party may use details in the token such as the subject's NHS number of demographics, noting that in the case of proxy, the token subject and demographics will be those of the patient and not the logged-in user (see [NHS login documentation](https://nhsconnect.github.io/nhslogin/) for token specification)
+
 ## API integrations
+
+TODO - the auth package, how it works and how to deliver a patient facing journey on top of this core capability (which deals with the obtaining of an access token and management of those for each profile - including the logged in user)
 
 <div class="nhsuk-inset-text">
   <p>See <a href="{{ '/patient-facing-journeys/im1-pfs-supplier-guidance' | url}}">IM1 PFS supplier guidance</a>
