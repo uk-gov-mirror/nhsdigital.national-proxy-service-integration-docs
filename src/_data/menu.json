@@ -70,12 +70,10 @@
     "items": [
       { "label": "Overview", "path": "/fhir-specifications" },
       {
-        "label": "QuestionnaireResponse resource",
-        "path": "/fhir-specifications/questionnaire-response-resource"
+        "label": "FHIR Standard reference",
+        "path": "/fhir-specifications/fhir-standard-reference"
       },
-      { "label": "Consent resource", "path": "/fhir-specifications/consent-resource" },
-      { "label": "Patient resource", "path": "/fhir-specifications/patient-resource" },
-      { "label": "RelatedPerson resource", "path": "/fhir-specifications/related-person-resource" }
+      { "label": "Consent resource", "path": "/fhir-specifications/consent-resource" }
     ]
   },
   {
