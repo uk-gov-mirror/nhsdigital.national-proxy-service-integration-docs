@@ -17,7 +17,7 @@ In addition to any standard security, service-specific, clinical or information 
 
 ## How to enable proxy access
 
-The API Management platform supports the enablement of delegated access. It is an "Opt in" feature and must be explicitly enabled on your API proxy. To do so, [contact the NHS England API platform team](https://digital.nhs.uk/services/api-platform#contact-us).
+The NHSE API Management platform supports the enablement of delegated access. It is an "Opt in" feature and must be explicitly enabled on your API proxy. To do so, [contact the NHS England API platform team](https://digital.nhs.uk/services/api-platform#contact-us).
 
 ## Governance
 

@@ -212,6 +212,23 @@ To add an image to the page in a standardised way with a popout into a separate 
 {{ imagePopOut('/assets/images/diagram2.png' | url, 'Second diagram') }}
 ```
 
+### Adding sequence diagrams
+
+Mermaid sequence diagrams are supported out-the-box. You just need to wrap them in appropriate pre tags as per below
+
+
+\```mermaid
+
+// Your diagram content here
+
+\```
+
+
+Diagrams are pan-able (js for this in `/src/assets/scripts`).
+
+**Re-building diagrams:** Diagrams are generated at build time. Therefore, any changes to the diagram code will require a build (`npm run build`) before it will render. An update to the diagram code will result in it reverting to plain text until that build has been executed.
+
+
 ---
 
 For more details, see the [Eleventy documentation](https://www.11ty.dev/docs/).
