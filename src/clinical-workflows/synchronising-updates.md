@@ -11,7 +11,7 @@ There are various business processes that require the National Proxy Service to 
 
 Documentation regarding MNS and how to onboard can be found on their [API catalogue page](https://digital.nhs.uk/developer/api-catalogue/multicast-notification-service).
 
-### National Proxy Service Events
+## National Proxy Service Events
 
 The National Proxy Service currently publishes three types of events as described below. For further context of where these would fit in the broader business process, see the [Managing proxy access business process]({{ '/clinical-workflows/manage-proxy-access/' | url }}).
 
@@ -36,3 +36,20 @@ In general you should subscribe to all events and determine if the NHS number of
 ### Filtering - Primary Care suppliers
 
 Primary Care suppliers can benefit from configuring filtering rules on the MNS subscription based on the ODS code of patient.
+
+## Personal Demographics Service Events
+
+The Personal Demographics Service currently publishes events as described below.
+
+| Event name               | Description                                                                                   | Specification                                                                                                                 |
+| ------------------------ | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Personal Demographics Service change event |Event will be published whenever a patient's PDS record changes. | [Event specification](https://digital.nhs.uk/developer/api-catalogue/multicast-notification-service/pds-change-event) |
+
+### Filtering - general
+
+In general you should subscribe to all events and determine if the NHS number of the subject is relevant to your context e.g. do you hold a proxy role for them. If you do then you will want to process the event and update your local records accordingly. If it is not relevant to your context then the event can be discarded.
+
+### Filtering - Primary Care suppliers
+
+Primary Care suppliers can benefit from applying filtering rules to their PDS MNS subscriptions based on NHS numbers. Generally, subscriptions should be restricted to NHS numbers relevant to your clinical context, such as patients/proxies for whom a proxy role is held, allowing you to seamlessly maintain accurate local records.
+
