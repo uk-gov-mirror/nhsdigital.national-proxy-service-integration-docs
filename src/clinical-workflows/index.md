@@ -21,8 +21,6 @@ A key building block in establishing a safe and interoperable National Proxy Ser
 
 The [Proxy Information Standard](https://digital.nhs.uk/binaries/content/assets/website-assets/data-and-information/information-standards/standards-and-collections/dapb3051-amd-51-2025/dapb3051_amd592025_authorisation-use-case-proxy-implementation-guidance-v1.pdf) defines a consistent approach to granting and managing proxy access to digital services. This standard should be read alongside the [DAPB3051: Identity Verification and Authentication Standard for Health and Care Digital, Data, Analytics and Technology Use](https://digital.nhs.uk/data-and-information/information-standards/governance/latest-activity/standards-and-collections/dapb3051-identity-verification-and-authentication-standard-for-digital-health-and-care-services). Together, these standards provide a common foundation for representing identity and delegation in a way that supports safety, interoperability, and auditability across the health system.
 
-{{ imagePopOut('/assets/images/trust.png' | url, 'Building trust through standards') }}
-
 ## Clinical Review and Decision-Making
 
 Granting proxy access is not purely a technical operation. It typically requires:

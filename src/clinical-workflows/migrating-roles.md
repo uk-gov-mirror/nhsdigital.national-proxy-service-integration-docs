@@ -74,3 +74,14 @@ Before testing starts, the Proxy Team will supply each supplier with an addition
 1. **Supplier functionality is toggled on**: After the Proxy team have confirmed that the proxy roles have been migrated correctly, the supplier toggles on the proxy functionality for the given GP surgeries. From that point onwards, the supplier system will get, create, and update proxy roles in VRS for the enabled ODS codes.
 
 1. **Repeat steps 2-5 for rollout**: After successful completion of steps 2-5 for one batch of proxy roles, this should be completed for all other proxy roles in batches agreed with the Proxy team.
+
+## Handling conflicts with existing proxy roles
+
+If a patient and/or their related proxy has moved from a practice using one GPIT supplier (supplier 1) to another (supplier 2), their proxy role may have already been migrated to NPS by supplier 1. In this case, a POST /Consent request to VRS for the same patient and proxy will cause a 409 error to be returned.
+
+In this instance, supplier 2 must do a GET /Consent request to VRS to retrieve this existing proxy role from NPS and store the role ID within their system against the role they attempted to migrate.
+
+If the response from VRS showed that the proxy role status is 'inactive', supplier 2 must send a PATCH /Consent/{id} request to VRS to update this status to 'active'.
+
+{{ imagePopOut('/assets/images/conflict-handling-migration.png' | url, 'Handling conflict migration plan ') }}
+
