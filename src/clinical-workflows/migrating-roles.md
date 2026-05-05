@@ -27,7 +27,7 @@ In addition to various pieces of metadata ([see FHIR specification guidance for 
 
 #### Only 'active' roles should be migrated
 
-The proxy roles being migrated must be 'active' within the GPIT supplier's system. All the roles being migrated to VRS via the `POST /Consent` endpoint will be set to active status within NPS on creation.
+The proxy roles being migrated must be 'active' within the GPIT supplier's system. All the roles being migrated to the national service via the VRS `POST /Consent` endpoint will be set to active status.
 
 <div class="nhsuk-warning-callout">
   <h3 class="nhsuk-warning-callout__label">
@@ -55,6 +55,7 @@ The following exit criteria should be met:
 
 - All agreed test use cases have been completed successfully.
 - Both the Proxy team and supplier are able to tally/verify migrated role numbers.
+- The supplier test data has mapped to the correct fields within the test National Proxy Store.
 - Supplier is able to demonstrate any failed migrations can be retried.
 - Assurance documentation has been signed off.
 - DOS onboarding has been signed off.
@@ -67,23 +68,23 @@ Before testing starts, the Proxy Team will supply each supplier with an addition
 
 {{ imagePopOut('/assets/images/migration_plan.png' | url, 'Migration plan ') }}
 
-1. **Supplier onboards to VRS**: A supplier must complete the DOS assurance process to onboard onto VRS. Testing their integration in the INT environment before being granted access to the production environment. All functionality on the supplier system that uses the National Proxy Service and it's constituent parts should be toggled off for all users in Production at this stage.
+1. **Supplier onboards to VRS**: A supplier must complete the DOS assurance process to onboard onto VRS. Testing their integration in the INT environment before being granted access to the production environment. All functionality on the supplier system that uses the national service, and it's constituent parts should be toggled off for all users in Production at this stage.
 
 1. **ODS codes for migration are selected**: The supplier and Proxy team agree a set of ODS codes for each migration batch. All proxy roles for patients and proxies that are registered with the chosen ODS code will be migrated.
 
 1. **Supplier comms to GPs**: The supplier sends out comms to each GP surgery being migrated (in step 2), informing them of the details about the new functionality and when this will be turned on.
 
-1. **Proxy role migration**: During an agreed time window, typically at a weekend or period of low/no traffic, all proxy roles identified in step 2 are migrated to the National Proxy Service using the VRS `POST /Consent` endpoint. Once complete, VRS will confirm the number of proxy roles in uploaded for each ODS code so these can be verified against supplier expected numbers.
+1. **Proxy role migration**: During an agreed time window, typically at a weekend or period of low/no traffic, all proxy roles identified in step 2 are migrated to the national service using the VRS `POST /Consent` endpoint. Once complete, the Proxy team will confirm the number of proxy roles in uploaded for each ODS code so these can be verified against supplier expected numbers.
 
-1. **Supplier functionality is toggled on**: After the Proxy team have confirmed that the proxy roles have been migrated correctly, the supplier toggles on the proxy functionality for the given GP surgeries. From that point onwards, the supplier system will get, create, and update proxy roles in VRS for the enabled ODS codes.
+1. **Supplier functionality is toggled on**: After the Proxy team have confirmed that the proxy roles have been migrated correctly, the supplier toggles on the proxy functionality for the given GP surgeries. From that point onwards, the supplier system will get, create, and update proxy roles in the national service for the enabled ODS codes.
 
 1. **Repeat steps 2-5 for rollout**: After successful completion of steps 2-5 for one batch of proxy roles, this should be completed for all other proxy roles in batches agreed with the Proxy team.
 
 ### Handling conflicts with existing proxy roles
 
-If a patient and/or their related proxy has moved from a practice using one GPIT supplier (supplier 1) to another (supplier 2), their proxy role may have already been migrated to NPS by supplier 1. In this case, a `POST /Consent` request to VRS for the same patient and proxy will cause a 409 error to be returned.
+If a patient and/or their related proxy has moved from a practice using one GPIT supplier (supplier 1) to another (supplier 2), their proxy role may have already been migrated to the national service by supplier 1. In this case, a `POST /Consent` request to VRS for the same patient and proxy will cause a 409 error to be returned.
 
-In this instance, supplier 2 must do a `GET /Consent` request to VRS to retrieve this existing proxy role from NPS and store the role ID within their system against the role they attempted to migrate.
+In this instance, supplier 2 must do a `GET /Consent` request to VRS to retrieve this existing proxy role from the national service and store the role ID within their system against the role they attempted to migrate.
 
 If the response from VRS showed that the proxy role status is 'inactive', supplier 2 must send a `PATCH /Consent/{id}` request to VRS to update this status to 'active'.
 
@@ -93,6 +94,6 @@ If the response from VRS showed that the proxy role status is 'inactive', suppli
 
 ### Reactivating inactive roles
 
-If a supplier has been requested to reactivate an inactive role within their system, and do not have a NPS consent ID for that proxy role, they should send a `POST /Consent` request to VRS to create it as active.
+If a supplier has been requested to reactivate an inactive role within their system, and do not have an ID from the national service for that proxy role, they should send a `POST /Consent` request to VRS to create it as active.
 
 When doing this, if a 409 duplicate response is returned from VRS, they should follow the process outlined above in the 'Handling conflicts with proxy roles' section.
