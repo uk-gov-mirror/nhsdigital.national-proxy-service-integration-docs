@@ -25,6 +25,10 @@ In addition to various pieces of metadata ([see FHIR specification guidance for 
 | Status             | The status of the proxy role i.e. `active`.                                                                                                                       |
 | Grantor            | The ODS code of the organisation that authorised the proxy role.                                                                                                  |
 
+#### Only 'active' roles should be migrated
+
+The proxy roles being migrated must be 'active' within the GPIT supplier's system. All the roles being migrated to VRS via the `POST /Consent` endpoint will be set to active status within NPS on creation.
+
 <div class="nhsuk-warning-callout">
   <h3 class="nhsuk-warning-callout__label">
     <span role="text">
@@ -59,28 +63,6 @@ Suppliers are required to conduct testing in the same technical manner as they w
 
 Before testing starts, the Proxy Team will supply each supplier with an additional header. This header must be included in every API request so that they can track which proxy roles have been migrated to the national service during each round of testing.
 
-## Proxy role requirements
-
-### Active roles only
-
-The proxy roles being migrated must be 'active' within the GPIT supplier's system. All the roles being migrated to VRS via the `POST /Consent` endpoint will be set to active status within NPS on creation.
-
-### Reactivating inactive roles
-
-If a GPIT supplier has been requested to reactivate an inactive role within their system, and do not have a NPS consent ID for that proxy role, they should send a `POST /Consent` request to VRS to create it as active. 
-
-When doing this, if a 409 duplicate response is returned from VRS, they should follow the process outlined below in the 'Handling conflicts with proxy roles' section.
-
-### Handling conflicts with existing proxy roles
-
-If a patient and/or their related proxy has moved from a practice using one GPIT supplier (supplier 1) to another (supplier 2), their proxy role may have already been migrated to NPS by supplier 1. In this case, a `POST /Consent` request to VRS for the same patient and proxy will cause a 409 error to be returned.
-
-In this instance, supplier 2 must do a `GET /Consent` request to VRS to retrieve this existing proxy role from NPS and store the role ID within their system against the role they attempted to migrate.
-
-If the response from VRS showed that the proxy role status is 'inactive', supplier 2 must send a `PATCH /Consent/{id}` request to VRS to update this status to 'active'.
-
-{{ imagePopOut('/assets/images/conflict-handling-migration.png' | url, 'Handling conflict migration plan ') }}
-
 ## Migration plan
 
 {{ imagePopOut('/assets/images/migration_plan.png' | url, 'Migration plan ') }}
@@ -96,3 +78,21 @@ If the response from VRS showed that the proxy role status is 'inactive', suppli
 1. **Supplier functionality is toggled on**: After the Proxy team have confirmed that the proxy roles have been migrated correctly, the supplier toggles on the proxy functionality for the given GP surgeries. From that point onwards, the supplier system will get, create, and update proxy roles in VRS for the enabled ODS codes.
 
 1. **Repeat steps 2-5 for rollout**: After successful completion of steps 2-5 for one batch of proxy roles, this should be completed for all other proxy roles in batches agreed with the Proxy team.
+
+### Handling conflicts with existing proxy roles
+
+If a patient and/or their related proxy has moved from a practice using one GPIT supplier (supplier 1) to another (supplier 2), their proxy role may have already been migrated to NPS by supplier 1. In this case, a `POST /Consent` request to VRS for the same patient and proxy will cause a 409 error to be returned.
+
+In this instance, supplier 2 must do a `GET /Consent` request to VRS to retrieve this existing proxy role from NPS and store the role ID within their system against the role they attempted to migrate.
+
+If the response from VRS showed that the proxy role status is 'inactive', supplier 2 must send a `PATCH /Consent/{id}` request to VRS to update this status to 'active'.
+
+{{ imagePopOut('/assets/images/conflict-handling-migration.png' | url, 'Handling conflict migration plan ') }}
+
+## Post-migration
+
+### Reactivating inactive roles
+
+If a supplier has been requested to reactivate an inactive role within their system, and do not have a NPS consent ID for that proxy role, they should send a `POST /Consent` request to VRS to create it as active.
+
+When doing this, if a 409 duplicate response is returned from VRS, they should follow the process outlined above in the 'Handling conflicts with proxy roles' section.
