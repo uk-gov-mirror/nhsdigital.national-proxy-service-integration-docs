@@ -27,7 +27,7 @@ In addition to various pieces of metadata ([see FHIR specification guidance for 
 
 #### Only 'active' roles should be migrated
 
-The proxy roles being migrated must be 'active' within the GPIT supplier's system. All the roles being migrated to the national service via the VRS `POST /Consent` endpoint will be set to active status.
+The proxy roles being migrated must be 'active' within the supplier's system. All the roles being migrated to the national service via the VRS `POST /Consent` endpoint will be set to active status.
 
 <div class="nhsuk-warning-callout">
   <h3 class="nhsuk-warning-callout__label">
@@ -82,11 +82,11 @@ Before testing starts, the Proxy Team will supply each supplier with an addition
 
 ### Handling conflicts with existing proxy roles
 
-If a patient and/or their related proxy has moved from a practice using one GPIT supplier (supplier 1) to another (supplier 2), their proxy role may have already been migrated to the national service by supplier 1. In this case, a `POST /Consent` request to VRS for the same patient and proxy will cause a 409 error to be returned.
+If a patient and/or their related proxy has moved from a practice using one supplier (supplier A) to another (supplier B), their proxy role may have already been migrated to the national service by supplier A. In this case, a `POST /Consent` request to VRS for the same patient and proxy will cause a 409 error to be returned.
 
-In this instance, supplier 2 must do a `GET /Consent` request to VRS to retrieve this existing proxy role from the national service and store the role ID within their system against the role they attempted to migrate.
+In this instance, supplier B must do a `GET /Consent` request to VRS to retrieve this existing proxy role from the national service and store the role ID within their system against the role they attempted to migrate.
 
-If the response from VRS showed that the proxy role status is 'inactive', supplier 2 must send a `PATCH /Consent/{id}` request to VRS to update this status to 'active'.
+If the response from VRS showed that the proxy role status is 'inactive', supplier B must send a `PATCH /Consent/{id}` request to VRS to update this status to 'active'.
 
 {{ imagePopOut('/assets/images/conflict-handling-migration.png' | url, 'Handling conflict migration plan ') }}
 
