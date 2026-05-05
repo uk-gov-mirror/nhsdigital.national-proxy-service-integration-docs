@@ -23,6 +23,7 @@ In addition to various pieces of metadata ([see FHIR specification guidance for 
 | Start date         | The date when proxy access was authorised.                                                                                                                        |
 | End date           | (Optional) The date when access should end.                                                                                                                       |
 | Status             | The status of the proxy role i.e. `active`.                                                                                                                       |
+| Status reason      | The reason for the status i.e. `ROLE_CREATED`.                                                                                                                    |
 | Grantor            | The ODS code of the organisation that authorised the proxy role.                                                                                                  |
 
 #### Only 'active' roles should be migrated

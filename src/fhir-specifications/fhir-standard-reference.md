@@ -50,9 +50,7 @@ Common FHIR data types used in this implementation:
 
 In delivering the service we have needed to "backport" certain properties from R5 to the R4 `Consent` resource profile. These properties have been added as extensions to our R4 profile. The extensions are available in FHIR Cross-Version Extensions package for FHIR R4 from FHIR R5 - Version 0.0.1-snapshot-2. See the [Directory of published versions](http://hl7.org/fhir/5.0/history.html). Specifically the following extensions have been referenced:
 
-- **grantee** ([Cross-version Extension for R5.Consent.grantee for use in FHIR R4](https://hl7.org/fhir/uv/xver-r5.r4/0.0.1-snapshot-2/StructureDefinition-ext-R5-Consent.grantee.html))
 - **grantor** ([Cross-version Extension for R5.Consent.grantor for use in FHIR R4](https://hl7.org/fhir/uv/xver-r5.r4/0.0.1-snapshot-2/StructureDefinition-ext-R5-Consent.grantor.html))
-- **regulatoryBasis** ([Cross-version Extension for R5.Consent.regulatoryBasis for use in FHIR R4](https://hl7.org/fhir/uv/xver-r5.r4/0.0.1-snapshot-2/StructureDefinition-ext-R5-Consent.regulatoryBasis.html))
 
 ## UK Core FHIR Implementation Guide
 

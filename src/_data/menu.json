@@ -27,7 +27,6 @@
         "path": "/clinical-workflows/request-and-grant-of-access"
       },
       { "label": "Manage proxy access", "path": "/clinical-workflows/manage-proxy-access" },
-      { "label": "GP transfers", "path": "/clinical-workflows/gp-transfers" },
       {
         "label": "Synchronising updates",
         "path": "/clinical-workflows/synchronising-updates"
@@ -54,11 +53,7 @@
         "label": "API producer guidance",
         "path": "/patient-facing-journeys/api-producer-guidance"
       },
-      { "label": "NHS app specific guidance", "path": "/patient-facing-journeys/nhs-app-guidance" },
-      {
-        "label": "IM1 PFS supplier guidance",
-        "path": "/patient-facing-journeys/im1-pfs-supplier-guidance"
-      }
+      { "label": "NHS app specific guidance", "path": "/patient-facing-journeys/nhs-app-guidance" }
     ]
   },
   {

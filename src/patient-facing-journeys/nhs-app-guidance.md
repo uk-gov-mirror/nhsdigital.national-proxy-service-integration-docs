@@ -5,7 +5,7 @@ title: NHS app guidance
 
 Teams wishing to implement a proxy journey in the NHS app can benefit from the fact that most of the underlying capability has ben delivered already. The app will deal with
 
-1. Presenting a list of patients the logged in user can mange services for (via NHS login) - "Manage services for others screen"
+1. Presenting a list of patients the logged in user can mange services for (via NHS login) - "Manage health services for others" screen
 1. Generation of access tokens through the auth package
 
 ## Web integrations
@@ -20,12 +20,3 @@ The process of navigating to a third-party web application and retaining logged-
 1. **(Slight Variant)** Third party may use details in the token such as the subject's NHS number of demographics, noting that in the case of proxy, the token subject and demographics will be those of the patient and not the logged-in user (see [NHS login documentation](https://nhsconnect.github.io/nhslogin/) for token specification)
 
 For more detailed interaction details see how to [enable proxy access to services]({{ '/patient-facing-journeys/enable-proxy-access-to-services' }})
-
-## API integrations
-
-TODO - the auth package, how it works and how to deliver a patient facing journey on top of this core capability (which deals with the obtaining of an access token and management of those for each profile - including the logged in user)
-
-<div class="nhsuk-inset-text">
-  <p>See <a href="{{ '/patient-facing-journeys/im1-pfs-supplier-guidance' | url}}">IM1 PFS supplier guidance</a>
-  for more information specific to integrating with IM1 interfaces and supporting cross-practice proxy access.</p>
-</div>

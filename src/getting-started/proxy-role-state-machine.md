@@ -18,6 +18,7 @@ The state transitions in the diagram above are described in more detail below:
 | -------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Active   | With end date    | A role is active and has been marked as having an end date e.g. when a proxy role should be suspended for an age-based milestone. After the end date, the role will move to be inactive. VRS will notify patient and proxy ahead of time that access is going to end, and when it has ended. |
 | Active   | Without end date | A role is active with no prescribed end date.                                                                                                                                                                                                                                                |
+| Rejected | Without end date | A role is rejected. |
 | Inactive | With end date    | When a proxy role is suspended / ended it moves into an inactive state along with a coded `statusReason` to describe why it is in the current state e.g. safeguarding concern.                                                                                                               |
 
 ## Status reasons
